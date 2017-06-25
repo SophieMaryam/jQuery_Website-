@@ -19,14 +19,14 @@
 </div>
 
 <div id="milkyway">
-	<h2 style="font-family:'Russo One', sans-serif; padding-top:100px"> The Milky Way </h2>
+	<h2 style="font-family:'Russo One', sans-serif; padding-top:100px; word-spacing: 1px; letter-spacing:0.5px; font-weight:bold"> The Milky Way </h2>
 
 
-	<p style="font-family: 'Advent Pro', sans-serif;"> There are at least 100 billion planets in our galaxy. But within our solar system there are 8 known planets. Can you name them all? </p>
+	<p style="font-family: 'Advent Pro', sans-serif;  word-spacing: 1px; letter-spacing:0.5px; font-weight:bold"> There are at least 100 billion planets in our galaxy. But within our solar system there are 8 known planets. Can you name them all? </p>
 
 	<p id="clickme" style="font-family: 'Advent Pro', sans-serif"> Click here for the answers! </p>
 
-	<ul id="dropdown" style="display:none; list-style-type:none"> 
+	<ul id="dropdown" style="display:none; text-decoration:none; list-style-type:none; font-family: 'Advent Pro', sans-serif"> 
 	 	<li> <a style="color:white" href="https://en.wikipedia.org/wiki/Mercury_(planet)"> Mercury </a></li>
 	 	<li> <a style="color:white" href="https://en.wikipedia.org/wiki/Venus"> Venus </a> </li>
 	 	<li> <a style="color:white" href="https://en.wikipedia.org/wiki/Earth"> Earth </a> </li>
@@ -49,8 +49,21 @@
 <img id="earth" src="http://clipartix.com/wp-content/uploads/2016/04/Earth-free-to-use-cliparts-4.png" width="100px" height="100px" style="padding-left:750px; padding-top:60px"/>
 
 
+<h4 style="font-family: 'Advent Pro', sans-serif; font-size:30px"> Hover over pluto! </h4>
+<div id="planets">
+<img id="pluto" src="https://d3i6fh83elv35t.cloudfront.net/newshour/features/pluto/images/pluto-photo.png" width="100px" height="100px"/>
 
+<p id="notplanet" style="display:none; color:white; font-family: 'Advent Pro', sans-serif; font-size:30px"> Pluto isn't a planet </p>
+</div>
 
+<button id="reappear" style="margin-top:100px"> 
+	Make Pluto Reappear 
+</button>
+
+<div id="stars" style="padding-top:100px; padding-left:700px">
+	<img id="satellite" src="satellite.png" width="auto" height="200px"/>
+	
+</div>
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -64,14 +77,35 @@
   		});
 
   		$("#right").click(function(){
-  			$(".spaceship").animate({"left": "+=50px"}, "slow");
+  			$(".spaceship").animate({"left": "+=50px"}, "fast");
 		});
 
-		$("#left").click(function(){
-  			$(".spaceship").animate({"left": "-=50px"}, "slow");
-		});
+		$('#pluto').hover(function(){
+  			$('#notplanet').slideDown("slow", function(){});
+
+  		});	
+
+  		$('#pluto').mouseenter(function(){
+  			$(this).fadeOut("slow");
+  		});
+
+  		$('#reappear').click(function(){
+  			$("#pluto").fadeIn("slow");
+  		});
+
+  		$('#reappear').click(function(){
+  			$("#notplanet").fadeOut("fast");
+  		});
 
 
+		$("#satellite").hover(function()
+   			{
+   				$("#satellite").attr('src', 'satellite.png');
+   			},
+   			function()
+   			{
+   				$('#satellite').attr('src','alien.png');
+   		});
 
   });
   
