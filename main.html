@@ -10,7 +10,7 @@
 
 
 	
-	<h1 style="font-family:'Russo One', sans-serif; font-size:50px"> The Galaxy <h2>
+	<h1 style="font-family:'Russo One', sans-serif; font-size:50px"> The Galaxy </h1>
 
 
 
@@ -79,6 +79,10 @@
   		$("#right").click(function(){
   			$(".spaceship").animate({"left": "+=50px"}, "fast");
 		});
+
+        $("#left").click(function(){
+        $(".spaceship").animate({"right": "+=50px"}, "fast");
+    });
 
 		$('#pluto').hover(function(){
   			$('#notplanet').slideDown("slow", function(){});
